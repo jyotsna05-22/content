@@ -9,6 +9,8 @@ browser-compat: api.Element.setHTML
 {{APIRef("HTML Sanitizer API")}}
 
 The **`setHTML()`** method of the {{domxref("Element")}} interface provides an XSS-safe method to parse and sanitize a string of HTML and insert it into the DOM as a subtree of the element.
+> **Note**
+> Even when HTMLhas been sanitized, re-parsing sanitized HTML may still introduce vulnerabilities known as mutation XSS (mXSS). Developers should avoid modifying sanitized HTML in ways that cause it to be reinterpreted by the browser.
 
 The method removes any elements and attributes that are considered XSS-unsafe, even if allowed by a passed sanitizer.
 Notably, the following elements are always removed: {{HTMLElement("script")}}, {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}}, {{HTMLElement("object")}}, {{SVGElement("use")}}, and event handler attributes.
